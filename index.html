@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso SCORM</title>
+    
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.0/dist/css/materialize.min.css"
+    />
+    <!-- Meu CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Scorm JS -->
+    <script src="js/scorm/APIWrapper.js"></script>
+    <script src="js/scorm/SCOFunctions.js"></script>
+    <script src="js/scorm/scorm-app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Parte 01</h4>
+      <h1>Bem-vindo ao SCORM</h1>
+      <h5>Conteúdo:</h5>
+      <ul>
+        <li>Abrir e Concluir Scorm</li>
+        <li>Verificações para o bom funcionamento</li>
+        <li>Leitura do nome do aluno <i id="studentName"></i></li>
+      </ul>
+      <p>Esta é a sua introdução ao conteúdo SCORM.</p>
+
+      <p>
+        Utilize esses arquivos para engenharia reversa, para entender
+        funcionalidades do SCORM.
+      </p>
+      <p>Foque em entender o arquivo <b>scorm-app.js</b></p>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="row">
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+        <div class="card card--purple-shadow col s12 m4">
+          <div class="card-content">
+            <span class="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container center-align">
+      <!-- BTN conclusao -->
+      <button
+        id="finishButton"
+        class="btn filled text-uppercase"
+        onClick="finishTopic();"
+      >
+      <!-- FIXME: GENERALIZAR O CLICK DAS 2 FUNÇÕES -->
+       
+      <!-- <button
+        id="finishButton"
+        class="btn filled text-uppercase"
+        onClick="finishTopic(this);"> -->
+      
+        Concluir aula
+      </button>
+    </div>
+  </body>
+</html>
