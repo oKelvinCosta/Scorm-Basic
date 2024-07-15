@@ -117,8 +117,8 @@ function initView() {
 
   if (buttonFinish) {
     buttonFinish.addEventListener("click", () => {
-      finishTopic();
       saveSuspendData(suspendData);
+      finishTopic();
     });
   }
 }
