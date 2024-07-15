@@ -7,6 +7,9 @@
 **                   These functions encapsulate actions that are taken when the
 **                   user navigates between SCOs, or exits the Lesson.
 **
+** Editado por: Kelvin Costa - 15/07/2024
+** Contato: okelvincosta@gmail.com
+**
 ** Author: ADL Technical Team
 **
 ** Contract Number:
@@ -44,11 +47,11 @@
 var startDate;
 var exitPageStatus;
 
-/**
+/*******************************************************************************
  * Initializes the page and sets the lesson status.
  *
  * @return {void}
- */
+ *******************************************************************************/
 function loadPage()
 {
    var result = doLMSInitialize();
@@ -75,11 +78,11 @@ function startTimer()
    startDate = new Date().getTime();
 }
 
-/**
+/*******************************************************************************
  * Computes the elapsed time since the start date in seconds and formats it as HH:MM:SS.s.
  *
  * @return {void} Sets the session time in the SCORM data model.
- */
+ *******************************************************************************/
 function computeTime()
 {
    if ( startDate != 0 )
@@ -96,10 +99,12 @@ function computeTime()
    doLMSSetValue( "cmi.core.session_time", formattedTime );
 }
 
-/**
+
+/*******************************************************************************
  * Perform actions to handle going back in the SCORM course.
  *
- */
+ * @return {undefined} This function does not return a value.
+ *******************************************************************************/
 function doBack()
 {
    doLMSSetValue( "cmi.core.exit", "suspend" );
@@ -119,12 +124,12 @@ function doBack()
 
 }
 
-/**
+/*******************************************************************************
  * Continue the SCORM course with the given status.
  *
  * @param {string} status - The status to set for the course.
  * @return {undefined} This function does not return a value.
- */
+ *******************************************************************************/
 function doContinue( status )
 {
    // Reinitialize Exit to blank
@@ -150,14 +155,15 @@ function doContinue( status )
 
 }
 
-/**
+/*******************************************************************************
  * Sets the exit value to "logout" and commits the LMS data.
  *
  * @return {undefined} This function does not return a value.
- */
+ *******************************************************************************/
 function doQuit()
 {
    doLMSSetValue( "cmi.core.exit", "logout" );
+
 
    computeTime();
    exitPageStatus = true;
@@ -173,18 +179,28 @@ function doQuit()
    result = doLMSFinish();
 }
 
+
+
+
 /*******************************************************************************
-** The purpose of this function is to handle cases where the current SCO may be 
-** unloaded via some user action other than using the navigation controls 
-** embedded in the content.   This function will be called every time an SCO
-** is unloaded.  If the user has caused the page to be unloaded through the
-** preferred SCO control mechanisms, the value of the "exitPageStatus" var
-** will be true so we'll just allow the page to be unloaded.   If the value
-** of "exitPageStatus" is false, we know the user caused to the page to be
-** unloaded through use of some other mechanism... most likely the back
-** button on the browser.  We'll handle this situation the same way we 
-** would handle a "quit" - as in the user pressing the SCO's quit button.
-*******************************************************************************/
+ * Unloads the current page.
+ * 
+ * unloaded via some user action other than using the navigation controls 
+ * embedded in the content.   This function will be called every time an SCO
+ * is unloaded.  If the user has caused the page to be unloaded through the
+ * preferred SCO control mechanisms, the value of the "exitPageStatus" var
+ * will be true so we'll just allow the page to be unloaded.   If the value
+ * of "exitPageStatus" is false, we know the user caused to the page to be
+ * The purpose of this function is to handle cases where the current SCO may be 
+ * unloaded through use of some other mechanism... most likely the back
+ * button on the browser.  We'll handle this situation the same way we 
+ * would handle a "quit" - as in the user pressing the SCO's quit button.
+ *
+ * PT-BR lidaria com um "sair" - como se o usuário pressionasse o botão sair do SCO.
+ * 
+ *
+ * @return {void}
+ *******************************************************************************/
 function unloadPage()
 {
 
@@ -199,11 +215,17 @@ function unloadPage()
 	
 }
 
+
 /*******************************************************************************
-** this function will convert seconds into hours, minutes, and seconds in
-** CMITimespan type format - HHHH:MM:SS.SS (Hours has a max of 4 digits &
-** Min of 2 digits
-*******************************************************************************/
+ * this function will convert seconds into hours, minutes, and seconds in
+ * CMITimespan type format - HHHH:MM:SS.SS (Hours has a max of 4 digits &
+ * Min of 2 digits
+ *
+ * @param {number} ts - The total number of seconds to convert.
+ * @return {string} The time in the format HHH:MM:SS.SS (Hours:Minutes:Seconds.FractionOfSecond).
+ *******************************************************************************/
+
+
 function convertTotalSeconds(ts)
 {
    var sec = (ts % 60);

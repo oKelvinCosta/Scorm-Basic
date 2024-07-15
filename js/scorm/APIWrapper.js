@@ -2,6 +2,9 @@
 **
 ** FileName: APIWrapper.js
 **
+** Editado por: Kelvin Costa - 11/07/2024
+** Contato: okelvincosta@gmail.com
+**
 *******************************************************************************/
 
 /*******************************************************************************
@@ -80,16 +83,13 @@ var findAPITries = 0;
 
 
 /*******************************************************************************
-**
-** Function: doLMSInitialize()
-** Inputs:  None
-** Return:  CMIBoolean true if the initialization was successful, or
-**          CMIBoolean false if the initialization failed.
-**
-** Description:
-** Initialize communication with LMS by calling the LMSInitialize
-** function which will be implemented by the LMS.
-**
+ * Initialize communication with LMS by calling the LMSInitialize
+ * function which will be implemented by the LMS.
+ *
+ * @function doLMSInitialize
+ * @returns {CMIBoolean} true if the initialization was successful, or
+ *                       false if the initialization failed.
+ *
 *******************************************************************************/
 function doLMSInitialize()
 {
@@ -111,16 +111,15 @@ function doLMSInitialize()
 }
 
 /*******************************************************************************
-**
-** Function doLMSFinish()
-** Inputs:  None
-** Return:  CMIBoolean true if successful
-**          CMIBoolean false if failed.
-**
-** Description:
-** Close communication with LMS by calling the LMSFinish
-** function which will be implemented by the LMS
-**
+ *
+ * Close communication with LMS by calling the LMSFinish
+ * function which will be implemented by the LMS.
+ * 
+ * Fecha a comunicação com o LMS e redireciona o usuário para a página de Relatório de Desempenho.
+ *
+ * @function doLMSFinish
+ * @returns {CMIBoolean} true if successful, false if failed.
+ *
 *******************************************************************************/
 function doLMSFinish()
 {
@@ -146,17 +145,12 @@ function doLMSFinish()
 }
 
 /*******************************************************************************
-**
-** Function doLMSGetValue(name)
-** Inputs:  name - string representing the cmi data model defined category or
-**             element (e.g. cmi.core.student_id)
-** Return:  The value presently assigned by the LMS to the cmi data model
-**       element defined by the element or category identified by the name
-**       input value.
-**
-** Description:
-** Wraps the call to the LMS LMSGetValue method
-**
+ * Retrieves the value assigned by the LMS to the specified cmi data model element or category.
+ *
+ * @function doLMSGetValue
+ * @param {string} name - String representing the cmi data model defined category or element (e.g. cmi.core.student_id).
+ * @returns {*} The value presently assigned by the LMS to the cmi data model element defined by the element or category identified by the name input value.
+ * @description Wraps the call to the LMS LMSGetValue method.
 *******************************************************************************/
 function doLMSGetValue(name)
 {
@@ -185,18 +179,18 @@ function doLMSGetValue(name)
    }
 }
 
+
+
 /*******************************************************************************
-**
-** Function doLMSSetValue(name, value)
-** Inputs:  name -string representing the data model defined category or element
-**          value -the value that the named element or category will be assigned
-** Return:  CMIBoolean true if successful
-**          CMIBoolean false if failed.
-**
-** Description:
-** Wraps the call to the LMS LMSSetValue function
-**
-*******************************************************************************/
+ * 
+ * Sets the value of the specified cmi data model element or category.
+ *
+ * @function doLMSSetValue
+ * @param {string} name - String representing the data model defined category or element.
+ * @param {*} value - The value that the named element or category will be assigned.
+ * @returns {boolean} CMIBoolean, "True" if successful, "false" if failed.
+ * @description Wraps the call to the LMS LMSSetValue function.
+ *******************************************************************************/
 function doLMSSetValue(name, value)
 {
    var api = getAPIHandle();
@@ -217,15 +211,11 @@ function doLMSSetValue(name, value)
    return;
 }
 
+
 /*******************************************************************************
-**
-** Function doLMSCommit()
-** Inputs:  None
-** Return:  None
-**
-** Description:
-** Call the LMSCommit function 
-**
+ * Call the LMSCommit function 
+ *
+ * @return {string} Returns "true" if the LMSCommit was successful, "false" otherwise.
 *******************************************************************************/
 function doLMSCommit()
 {
@@ -242,20 +232,18 @@ function doLMSCommit()
       {
          var err = ErrorHandler();
       }
+
    }
 
    return result.toString();
 }
 
+
 /*******************************************************************************
-**
-** Function doLMSGetLastError()
-** Inputs:  None
-** Return:  The error code that was set by the last LMS function call
-**
-** Description:
-** Call the LMSGetLastError function 
-**
+ * Call the LMSGetLastError function 
+ *
+ * @param {None} Inputs: None
+ * @return {string} The error code that was set by the last LMS function call
 *******************************************************************************/
 function doLMSGetLastError()
 {
@@ -270,16 +258,13 @@ function doLMSGetLastError()
    return api.LMSGetLastError().toString();
 }
 
+
 /*******************************************************************************
-**
-** Function doLMSGetErrorString(errorCode)
-** Inputs:  errorCode - Error Code
-** Return:  The textual description that corresponds to the input error code
-**
-** Description:
-** Call the LMSGetErrorString function 
-**
-********************************************************************************/
+ * Retrieves the textual description that corresponds to the input error code.
+ *
+ * @param {number} errorCode - The error code.
+ * @return {string} The textual description of the error code.
+*******************************************************************************/
 function doLMSGetErrorString(errorCode)
 {
    var api = getAPIHandle();
@@ -291,16 +276,12 @@ function doLMSGetErrorString(errorCode)
    return api.LMSGetErrorString(errorCode).toString();
 }
 
+
 /*******************************************************************************
-**
-** Function doLMSGetDiagnostic(errorCode)
-** Inputs:  errorCode - Error Code(integer format), or null
-** Return:  The vendor specific textual description that corresponds to the 
-**          input error code
-**
-** Description:
-** Call the LMSGetDiagnostic function
-**
+ * Call the LMSGetDiagnostic function
+ *
+ * @param {type} errorCode - Error Code(integer format), or null
+ * @return {type} The vendor specific textual description that corresponds to the input error code
 *******************************************************************************/
 function doLMSGetDiagnostic(errorCode)
 {
@@ -313,15 +294,12 @@ function doLMSGetDiagnostic(errorCode)
    return api.LMSGetDiagnostic(errorCode).toString();
 }
 
+
+
 /*******************************************************************************
-**
-** Function LMSIsInitialized()
-** Inputs:  none
-** Return:  true if the LMS API is currently initialized, otherwise false
-**
-** Description:
-** Determines if the LMS API is currently initialized or not.
-**
+ * Determines if the LMS API is currently initialized or not.
+ *
+ * @return {boolean} Returns true if the LMS API is initialized, otherwise false.
 *******************************************************************************/
 function LMSIsInitialized()
 {
@@ -350,17 +328,13 @@ function LMSIsInitialized()
    }
 }
 
+
+
 /*******************************************************************************
-**
-** Function ErrorHandler()
-** Inputs:  None
-** Return:  The current value of the LMS Error Code
-**
-** Description:
-** Determines if an error was encountered by the previous API call
-** and if so, displays a message to the user.  If the error code
-** has associated text it is also displayed.
-**
+ * Determines if an error was encountered by the previous API call
+ * and displays the error description if an error occurred.
+ *
+ * @return {string} The current value of the LMS Error Code
 *******************************************************************************/
 function ErrorHandler()
 {
@@ -392,16 +366,12 @@ function ErrorHandler()
    return errCode;
 }
 
-/******************************************************************************
-**
-** Function getAPIHandle()
-** Inputs:  None
-** Return:  value contained by APIHandle
-**
-** Description:
-** Returns the handle to API object if it was previously set,
-** otherwise it returns null
-**
+
+/*******************************************************************************
+ * Returns the handle to API object if it was previously set,
+ * otherwise it returns null
+ *
+ * @return {value} value contained by APIHandle
 *******************************************************************************/
 function getAPIHandle()
 {
@@ -414,16 +384,13 @@ function getAPIHandle()
 }
 
 
+
 /*******************************************************************************
-**
-** Function findAPI(win)
-** Inputs:  win - a Window Object
-** Return:  If an API object is found, it's returned, otherwise null is returned
-**
-** Description:
-** This function looks for an object named API in parent and opener windows
-**
-*******************************************************************************/
+ * Finds the API object in the given window or its parent windows.
+ *
+ * @param {Window} win - The window object to search for the API.
+ * @return {Object|null} The API object if found, or null if not found.
+ *******************************************************************************/
 function findAPI(win)
 {
    while ((win.API == null) && (win.parent != null) && (win.parent != win))
@@ -444,18 +411,16 @@ function findAPI(win)
 
 
 
+
+
 /*******************************************************************************
-**
-** Function getAPI()
-** Inputs:  none
-** Return:  If an API object is found, it's returned, otherwise null is returned
-**
-** Description:
-** This function looks for an object named API, first in the current window's 
-** frame hierarchy and then, if necessary, in the current window's opener window
-** hierarchy (if there is an opener window).
-**
-*******************************************************************************/
+ * This function looks for an object named API, first in the current window's 
+ * frame hierarchy and then, if necessary, in the current window's opener window
+ * hierarchy (if there is an opener window).
+ *
+ * @param {none} 
+ * @return {object | null} If an API object is found, it's returned, otherwise null is returned
+ *******************************************************************************/
 function getAPI()
 {
    var theAPI = findAPI(window);

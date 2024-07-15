@@ -12,24 +12,25 @@ from the Reload Content Package Generator - http://www.reload.ac.uk-->
     xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
                         http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
                         http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
-    <organizations default="sesi-mg">
-        <organization identifier="sesi-mg" structure="hierarchical">
+    <organizations default="ORG-740E40442B4C4409A18841E470DD17C6">
+        <organization identifier="ORG-740E40442B4C4409A18841E470DD17C6" structure="hierarchical">
             <title>Curso SCORM</title>
             <item
-                identifier="item-identifier"
+                identifier="ITEM-05F0AE7EC4C3748FD1B3FA5B5773923E"
                 isvisible="true"
-                identifierref="sco01">
+                identifierref="RES-401D9B44196A31C385A7F3AC55420D57">
                 <title>Introdução ao SCORM</title>
             </item>
         </organization>
     </organizations>
     <resources>
         <resource
-            identifier="sco01"
+            identifier="RES-401D9B44196A31C385A7F3AC55420D57"
             type="webcontent"
             href="index.html"
             adlcp:scormtype="sco">
             <file href="index.html" />
+            <file href="js/scorm/scorm-app.js" />
         </resource>
     </resources>
 </manifest>
