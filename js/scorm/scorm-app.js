@@ -55,14 +55,14 @@ window.onload = function () {
     // // Executa a função loadPage que vai iniciar a comunicação com LMS através da API
     loadPage();
 
-    /*******************************************************************************
+    /**
      * Uma vez que a comunicação é iniciada em loadPage(),
      * queremos verificar periodicamente se ela ainda está em andamento.
      *
      * O método setInterval vai verificar periodicamente se o LMS está iniciado através da função.
      * Ou se o LMS não estiver iniciado, o intervalo irá verificar novamente.
      * Estando iniciado, o intervalo não irá mais verificar.
-     *******************************************************************************/
+     */
     var interval = setInterval(function () {
       if (LMSIsInitialized()) {
         clearInterval(interval);
